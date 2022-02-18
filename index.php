@@ -5,26 +5,64 @@
 
 ?>
 
-<h1 class="text-center mt-3"> Bienvenue sur le blog !</h1>
+  <body>
 
-<div class="container  mt-3">
-  <div class="row align-items-start">
-    <div class="col-4">
-      <img src="./img/profil_juliette.jpg" width="200px" height="200px" class="img-fluid rounded mx-auto d-block " alt="Responsive image">
-      <div class="col text-center mt-3">
-          <input type="submit" class="btn btn-light" value="Modifier la photo" />
+    <h1 class="text-center mt-3"> Bienvenue sur le blog !</h1>
+
+    <div class="container  mt-3">
+      <div class="row align-items-start">
+        <div class="col-4">
+          <img src="./img/profil_juliette.jpg" width="200px" height="200px" class="img-fluid rounded mx-auto d-block " alt="Responsive image">
+          <div class="col text-center mt-3">
+              <input type="submit" class="btn btn-light" value="Modifier la photo" />
+          </div>
+        </div>
+        <div class="col-8">
+          <h2>Juliette Christain</h2>
+          <p> Ma phrase d'accroche ? Aucune, je n'ai pas besoin de vous charmer, venez me parler ! </p>
+          <a href="">Téléchargez mon CV !</a>
+          <a href=""><i class="fab fa-twitter"></i></a>
+          <a href=""><i class="fab fa-facebook"></i></a>
+        </div>
       </div>
     </div>
-    <div class="col-8">
-      <h2>Juliette Christain</h2>
-      <p> Ma phrase d'accroche ? Aucune, je n'ai pas besoin de vous charmer, venez me parler ! </p>
-      <a href="">Téléchargez mon CV !</a>
-      <a href=""><i class="fab fa-twitter"></i></a>
-      <a href=""><i class="fab fa-facebook"></i></a>
-    </div>
-  </div>
-</div>
 
+    <!-- ARTICLES -->
+
+      <h2 class="mt-4 text-center col">Mes articles</h2>
+
+    </form>
+
+    <?php
+        $a=1;
+        $stmt = $db->prepare(
+            "SELECT * FROM post");
+        $stmt->execute();
+        $posts = $stmt->fetchAll();
+        foreach($posts as $post) 
+    {
+    ?>
+    <div class="container m-3">
+      <div class="card p-3">
+        <div class="card-title h3 text-primary">
+          <?php echo $post['title']; ?>
+        </div>
+
+        <div class="card-subtitle h4 text-secondary">
+          <?php echo $post['hat']; ?>
+        </div>
+
+        <div class="card-body text-justify text-muted">
+          <?php echo $post['content']; ?>
+        </div>
+      </div>
+    </div>
+
+    <?php
+      }
+      ?>
+
+<!-- CONTACT -->
 
 <h2 class="mt-4 text-center col">Contact</h2>
 
@@ -52,35 +90,7 @@
   <div class="col text-center mt-3">
     <input type="submit" class="btn btn-primary" value="Valider" />
   </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-  <h2 class="mt-4 text-center col">Mes articles</h2>
-
-</form>
-
-<?php 
-    $a=1;
-    $stmt = $db->prepare(
-        "SELECT * FROM post");
-    $stmt->execute();
-    $posts = $stmt->fetchAll();
-    foreach($posts as $post) 
-{
-?>
-
-  <div class="h3">
-    <?php echo $post['title']; ?>
-  </div>
-
-  <div class="p">
-    <?php echo $post['content']; ?>
-  </div>
-
-<?php
-  }
-  ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</body>
+  </body>
 </html>
