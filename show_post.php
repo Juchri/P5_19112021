@@ -47,7 +47,7 @@ $post = $req->fetch();
 
         <form method="POST">
             <h1 class="text-center mt-2">Commentez !</h1>
-
+            <div class="row"><p class="fst-italic"> Commenter en tant que </p></div>
             <label for="content" class="label-form"></label>
             <textarea class="form-control" name="content" placeholder="Ecrivez votre commentaire" style="width:40%;padding: 8px; font-size: 12px;height:100px;box-sizing:border-box;" class="form-control" required/>
             </textarea>
@@ -79,3 +79,9 @@ $data = [
 $sql = "INSERT INTO comment(content, published_at) VALUES (:content, :published_at)";
 $stmt= $db->prepare($sql);
 $stmt->execute($data);
+
+
+
+<?php
+require_once ('footer.php');
+?>

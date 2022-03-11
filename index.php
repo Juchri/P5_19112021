@@ -1,8 +1,6 @@
  <?php
-        require ('librairies/config_db.php');
         require ('head_nav.php');
         include_once('librairies/config_db.php');
-
 ?>
 
   <body>
@@ -49,11 +47,9 @@ $r = new Connexion('blog');
 // requete select simple
 $r->q("SELECT * FROM post");
 
- -->
-
-
 <?php
 
+/*
 $con = new connexion();
 $info = new post($con);
 $info->getPost();
@@ -82,7 +78,7 @@ $info->getPost();
     <?php
       }
       ?>
-
+-->
 <!-- CONTACT -->
 
 <h2 class="mt-4 text-center col">Contact</h2>
@@ -113,8 +109,9 @@ $info->getPost();
     <input type="submit" class="btn btn-primary" value="Valider" />
   </div>
 
-<!-- Bootstrap JS bundle -->
+*/
+?>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
-</html>
+<?php
+require_once ('footer.php');
+?>

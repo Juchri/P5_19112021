@@ -16,6 +16,13 @@ $post = $req->fetch();
     {
     ?>
 
+<?php
+        require ('head_nav.php');
+        include_once('librairies/config_db.php');
+?>
+
+  <body>
+
     <form class="m-3" method="POST">
         <h1 class="text-center mt-2">Modification de post</h1>
 
@@ -69,3 +76,10 @@ $stmt= $db->prepare($sql);
 $stmt->execute($data);
 
 ?>
+
+
+<!-- Bootstrap JS bundle -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
