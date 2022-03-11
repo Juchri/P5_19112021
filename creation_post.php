@@ -1,8 +1,10 @@
 <?php
         require ('librairies/config_db.php');
+        require ('librairies/functions.php');
         require ('head_nav.php');
-
 ?>
+
+<script src="tiny.js"></script>
 
     <div class="container">
         <!-- zone de connexion -->
@@ -17,7 +19,9 @@
             <input class="form-control" type="hat" placeholder="Entrer le chapeau" name="hat" required>
 
             <label for="content" class="label-form">Post</label>
-            <input type="textarea" name="content" style="width:100%;padding: 8px; font-size: 18px;height:300px;box-sizing:border-box;" class="form-control" required/>
+            <textarea id="content" name="content" type="content" style="width:100%;padding: 8px; font-size: 18px;height:300px;box-sizing:border-box;" class="form-control" required/>
+            </textarea>
+
 
             <input class="btn btn-primary col text-center mt-3" type="submit" id='submit' value='Publier' >
             <?php
@@ -33,17 +37,19 @@
 
 <?php
 
+$created_at = date('Y-m-d H:i:s');
+
 if(isset($_POST['title'])) {$title = addslashes($_POST['title']);} else {die();}
 if(isset($_POST['hat'])) {$hat = addslashes($_POST['hat']);} else {die();}
-if(isset($_POST['content'])) {$content = addslashes($_POST['content']);} else {die();}
-
+if(isset($_POST['content'])) {$content = pdo_nettoie(addslashes($_POST['content']));} else {die();}
 
 $data = [
     'title' => $title,
     'hat' => $hat,
-    'content' => $content
+    'content' => $content,
+    'created_at' => $created_at
 ];
-$sql = "INSERT INTO post(title, hat, content) VALUES (:title, :hat, :content)";
+$sql = "INSERT INTO post(title, hat, content, created_at) VALUES (:title, :hat, :content, :created_at)";
 $stmt= $db->prepare($sql);
 $stmt->execute($data);
 

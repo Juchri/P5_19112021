@@ -1,7 +1,10 @@
 <?php
 session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-  require ('config_db.php');
+  require ('librairies/config_db.php');
   require ('head_nav.php');
 
    // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
@@ -14,6 +17,7 @@ session_start();
       $stmt = $db->prepare("SELECT * FROM user where username = :username");
       $stmt->bindParam('username', $username);
       $stmt->execute();
+
       $user = $stmt->fetch();
 
         if($user && password_verify($_POST['password'], $user['hash'])) {

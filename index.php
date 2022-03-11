@@ -31,15 +31,36 @@
 
       <h2 class="mt-4 text-center col">Mes articles</h2>
 
-    </form>
+<!-- Test class Connexion
 
-    <?php
         $a=1;
         $stmt = $db->prepare(
             "SELECT * FROM post");
         $stmt->execute();
         $posts = $stmt->fetchAll();
-        foreach($posts as $post) 
+
+-->
+
+
+<!-- Test class 2 Connexion
+
+
+$r = new Connexion('blog');
+// requete select simple
+$r->q("SELECT * FROM post");
+
+ -->
+
+
+<?php
+
+$con = new connexion();
+$info = new post($con);
+$info->getPost();
+
+
+        $posts = $stmt->fetchAll();
+        foreach($posts as $post)
     {
     ?>
     <div class="container m-3">
@@ -86,11 +107,14 @@
       <input type="textarea" name="message" style="width:100%;padding: 8px; font-size: 18px;height:100px;box-sizing:border-box;" class="form-control" required/>
     </div>
   </div>
-  
+  </form>
+
   <div class="col text-center mt-3">
     <input type="submit" class="btn btn-primary" value="Valider" />
   </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+<!-- Bootstrap JS bundle -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
