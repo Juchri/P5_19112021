@@ -1,15 +1,13 @@
 <?php
+session_start();
         require ('librairies/config_db.php');
         require ('head_nav.php');
-        include_once('librairies/config_db.php');
-
 ?>
 
   <body>
 
 <?php
 
-    $a=1;
     $stmt = $db->prepare(
         "SELECT * FROM post ORDER BY created_at DESC");
     $stmt->execute();

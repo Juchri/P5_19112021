@@ -29,4 +29,6 @@ error_reporting(E_ALL);
         }
     }
 
-mysqli_close($db); // fermer la connexion
+//mysqli_close($db); // fermer la connexion
+
+//Session set -> récupérer les infos stcokées de l'utilisateur connecté dans la session

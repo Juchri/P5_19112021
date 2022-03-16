@@ -19,10 +19,13 @@
                     $user = $_SESSION['username'];
                     // afficher un message
                     echo "Bonjour $user, vous êtes connecté";
+                    header('Location: index.php');
                 }
             ?>
 
         </div>
+
+        <?php ini_set("session.gc_maxlifetime","3600"); ?>
 
 <?php
 require_once ('footer.php');
