@@ -4,7 +4,6 @@ session_start();
         require ('head_nav.php');
 ?>
 
-  <body>
 
 <?php
 
