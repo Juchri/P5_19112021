@@ -71,6 +71,8 @@ $post = $req->fetch();
 
         <!-- fin formulaire -->
     </div>
+
+
     <h3> Commentaires à valider </h3>
     <div class="">
       <div class="text-secondary container m-3">
@@ -94,11 +96,8 @@ $post = $req->fetch();
           </div>
         </div>
         <div class="row">
-          <form class="col-11 mt-1" method="post">
-              <input type="checkbox" name="is_published" value="1">
-              <input type="submit" type="submit" id='submit' value="Valider le commentaire">
-          </form>
-          <a class="col-1" href="deletecomment.php?id=<?php echo $comment['id']; ?>">
+          <a href="validate-comment.php?id=<?php echo $comment['id']; ?>">Valider le commentaire"</a>
+          <a class="col-1" href="trash-comment.php?id=<?php echo $comment['id']; ?>">
             <i class="fas fa-trash"></i>
           </a>
       </div>
@@ -110,6 +109,41 @@ $post = $req->fetch();
       </div>
     </div>
 
+    <h3> Corbeille </h3>
+    <div class="">
+      <div class="text-secondary container m-3">
+
+  <?php
+      $stmt = $db->prepare( "SELECT * FROM coment WHERE post_id=$id AND is_published='2' ORDER BY published_at DESC");
+      $stmt->execute();
+      $comments = $stmt->fetchAll();
+      foreach($comments as $comment)
+      {
+      ?>
+
+        <div class="card p-3 m-2">
+          <div class="card-title h3 text-primary">
+            <?php echo $comment['content']; ?>
+          </div>
+          <div class="blockquote-footer mb-0 p-3">
+            <?php echo "Modifié le" ?>
+            <?php echo $comment['published_at']; ?>
+            <div class="blockquote-footer p-3 mb-0"> <?php echo $comment['user'];  ?> </div>
+          </div>
+        </div>
+        <div class="row">
+          <a href="restaure-comment.php?id=<?php echo $comment['id']; ?>">Restaurer le commentaire"</a>
+          <a class="col-1" href="deletecomment.php?id=<?php echo $comment['id']; ?>">
+            <i class="fas fa-trash"></i>
+          </a>
+      </div>
+
+      <?php
+        }
+      ?>
+
+      </div>
+    </div>
   </div>
   <div class="col-6">
     <div> Commentaires validés </div>
@@ -132,6 +166,9 @@ $post = $req->fetch();
             <?php echo "Modifié le" ?>
             <?php echo $comment['published_at']; ?>
             <div class="blockquote-footer p-3"> <?php echo $comment['user'];  ?> </div>
+            <a class="col-1" href="trash-comment.php?id=<?php echo $comment['id']; ?>">
+              <i class="fas fa-trash"></i>
+             </a>
           </div>
         </div>
       </div>
@@ -163,16 +200,6 @@ $stmt= $db->prepare($sql);
 $stmt->execute($data);
 
 if(isset($_POST['is_published'])){$is_published = addslashes($_POST['is_published']); }else{$is_published = "0";}
-
-/* Mise à jour de la validation qui ne fonctionne pas...*/
-
-$data = [
-    'is_published' => $is_published
-];
-
-$sqlupdate = "UPDATE post(is_published) VALUES (:is_published)";
-$stmtupdate= $db->prepare($sqlupdate);
-$stmtupdate->execute($data);
 
 ?>
 
