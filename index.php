@@ -1,6 +1,7 @@
  <?php
         require ('head_nav.php');
         include_once('librairies/config_db.php');
+        require ('global.php');
 ?>
 
   <body>
@@ -12,7 +13,7 @@
         <div class="col-4">
           <img src="./img/profil_juliette.jpg" width="200px" height="200px" class="img-fluid rounded mx-auto d-block " alt="Responsive image">
           <div class="col text-center mt-3">
-              <input type="submit" class="btn btn-light" value="Modifier la photo" />
+              <input type="submit" class="my-btn-primary my-btn-primary-light" value="Modifier la photo" />
           </div>
         </div>
         <div class="col-8">
@@ -21,6 +22,11 @@
           <a href="">Téléchargez mon CV !</a>
           <a href=""><i class="fab fa-twitter"></i></a>
           <a href=""><i class="fab fa-facebook"></i></a>
+        <?php
+          if ($isLoggedIn){
+              echo 'Vous êtes connecté !';
+            }
+            ?>
         </div>
       </div>
     </div>
@@ -61,11 +67,11 @@ $info->getPost();
     ?>
     <div class="container m-3">
       <div class="card p-3">
-        <div class="card-title h3 text-primary">
+        <div class="card-title h3 my-text-primary">
           <?php echo $post['title']; ?>
         </div>
 
-        <div class="card-subtitle h4 text-secondary">
+        <div class="card-subtitle h4 my-text-secondary">
           <?php echo $post['hat']; ?>
         </div>
 
@@ -106,7 +112,7 @@ $info->getPost();
   </form>
 
   <div class="col text-center mt-3">
-    <input type="submit" class="btn btn-primary" value="Valider" />
+    <input type="submit" class="my-btn-primary my-btn-primary-primary" value="Valider" />
   </div>
 
 */

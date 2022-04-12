@@ -1,3 +1,7 @@
+<?php 
+require ('global.php');
+?>
+
 <!doctype html>
 <html lang="fr">
 <head>
@@ -14,10 +18,21 @@
 
 </head>
 
-<nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+<?php
+      if ($isLoggedIn){
+            ?>
+        <nav class="navbar navbar-expand-md fixed-top navbar-light my-bg-light">
+          <?php
+            }else{
+          ?>
+        <nav class="navbar navbar-expand-md fixed-top navbar-light my-bg-muted">
+          <?php
+            }
+          ?>
+
       <div class="container">
         <a class="navbar-brand text-uppercase fw-bold" href="#">
-          <span class="bg-primary bg-gradient p-1 rounded-3 text-light">John</span> Doe
+          <span class="my-my-bg-primary my-bg-primary p-1 rounded-3 text-light">Diagon</span> Alley
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,13 +54,27 @@
               </a>
             </li>
             <li class="nav-item">
+<?php 
+            if ($isLoggedIn){
+            ?>
               <a class="nav-link" href="login.php">
-                Log-in
-              </a>
+                <i class="fas fa-solid fa-user my-text-primary"></i> Mon compte</a>
+          <?php
+            }else{
+          ?>
+               <a class="nav-link my-text-primary" href="login.php"> Log-in</a>
+          <?php
+            }
+          ?>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="creation_account.php">
                 Création de compte
+              </a>
+            </li>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="creation_account.php">
               </a>
             </li>
             <li class="nav-item">
@@ -60,4 +89,8 @@
 
 </header>
 
-<body class="mt-5">
+<body style="margin-top: 5rem">
+
+
+
+

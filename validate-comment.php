@@ -3,14 +3,17 @@
 <?php
 require ('head_nav.php');
 require ('librairies/config_db.php');
+require ('global.php');
 
-// Récupère ID avec GET
-$id = $_GET[id] ;
+// Récupère ID de post et comment avec GET
+$post_id = $_GET[post_id] ;
+$comment_id = $_GET[comment_id] ;
 
 // Puis supprime le post lié à cet id
 //$redirect = 'showpost.php?id=$post_id';
-$query = $db -> query("UPDATE coment SET is_published = '1' WHERE id = $id");
+$query = $db -> query("UPDATE coment SET is_published = '1' WHERE id = $comment_id");
 if ($query){
-    //header('Location: "$redirect");
-    echo'Commentaire validé';
+    header("Location: show_post.php?id=".$post_id);
+}else{
+    echo 'Erreur';
 }

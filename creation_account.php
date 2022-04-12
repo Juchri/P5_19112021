@@ -3,7 +3,7 @@
         require ('head_nav.php');
 ?>
 
-<h1 class="text-center mt-2"> Créez votre compte ! </h1>
+<h1 class="text-center my-text-primary mt-2"> Créez votre compte ! </h1>
 
 <form method="post">
 
@@ -23,7 +23,7 @@
 </div>
 
 <div class="col text-center mt-3">
-<input type="submit" class="btn btn-primary" value="Valider" />
+<input type="submit" class="my-btn-primary my-btn-primary-primary" value="Valider" />
 </div>
 
 </form>

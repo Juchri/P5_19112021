@@ -1,11 +1,11 @@
 <?php
-session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
   require ('librairies/config_db.php');
   require ('head_nav.php');
+  require ('global.php');
 
    // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
     // pour éliminer toute attaque de type injection SQL et XSS

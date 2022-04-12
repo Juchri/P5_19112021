@@ -20,11 +20,11 @@ class post {
 
             <div class="container m-3">
               <div class="card p-3">
-                <div class="card-title h3 text-primary">
+                <div class="card-title h3 my-text-primary">
                   <?php echo $post['title']; ?>
                 </div>
 
-                <div class="card-subtitle h4 text-secondary">
+                <div class="card-subtitle h4 my-text-secondary">
                   <?php echo $post['hat']; ?>
                 </div>
 

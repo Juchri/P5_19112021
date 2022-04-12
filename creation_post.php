@@ -23,7 +23,7 @@
             </textarea>
 
 
-            <input class="btn btn-primary col text-center mt-3" type="submit" id='submit' value='Publier' >
+            <input class="my-btn-primary my-btn-primary-primary my-bg-primary col text-center mt-3" type="submit" id='submit' value='Publier' >
             <?php
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];

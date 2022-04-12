@@ -37,7 +37,7 @@ $post = $req->fetch();
              <?php echo $post['content']; ?>   
         </textarea>
 
-        <input class="btn btn-primary col text-center mt-3" type="submit" id='submit' value='Modifier le post' >
+        <input class="my-btn-primary my-btn-primary-primary col text-center mt-3" type="submit" id='submit' value='Modifier le post' >
 
         <?php
         if(isset($_GET['erreur'])){
@@ -49,7 +49,7 @@ $post = $req->fetch();
     ?>
     </form>
 
-    <a class="m-3" href="http://127.0.0.1:8888/P5_19112021/posts">
+    <a class="m-3 my-text-primary" href="http://127.0.0.1:8888/P5_19112021/posts">
             Retour à la liste des posts
     </a>
 
