@@ -10,12 +10,12 @@ if (file_exists("librairies/config_db.php")) include "librairies/config_db.php";
 // DETERMINE A VALID LOGIN
 $isLoggedIn = $_SESSION['username'];
 
-/* function getCommentList($postId, $isPublished){
+function getCommentList($postId, $isPublished){
 
         echo $postId;
         echo $isPublished;
 
-} */
+}
 
 
 ?>

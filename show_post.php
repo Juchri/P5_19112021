@@ -135,7 +135,7 @@ $post = $req->fetch();
 
     <?php
 
-        /*getCommentList($id, '2');*/
+        getCommentList($id, '2');
 
         $stmt = $db->prepare( "SELECT * FROM coment WHERE post_id=$id AND is_published='2' ORDER BY published_at DESC");
         $stmt->execute();
