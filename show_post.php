@@ -4,10 +4,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-session_start();
 require ('head_nav.php');
 require ('librairies/config_db.php');
-require ('global.php');
+
+if (file_exists("principale.php")) include "global.php";
+
 
 
 // Récupère id avec GET
@@ -56,7 +57,7 @@ $post = $req->fetch();
 /* Affichage commentaires à valider */
 ?>
 <div class="row">
-  <div class="col-6">
+  <div class="col-12 col-sm-6">
       <!-- Commentaires -->
     <div class="container">
         <!-- zone de connexion -->
@@ -133,6 +134,9 @@ $post = $req->fetch();
         <div class="my-text-secondary container">
 
     <?php
+
+        /*getCommentList($id, '2');*/
+
         $stmt = $db->prepare( "SELECT * FROM coment WHERE post_id=$id AND is_published='2' ORDER BY published_at DESC");
         $stmt->execute();
         $comments = $stmt->fetchAll();
@@ -174,7 +178,7 @@ $post = $req->fetch();
 <?php
     if ($isLoggedIn){
   ?>
-  <div class="col-6">
+  <div class="col-12 col-sm-6">
     <div> Commentaires validés </div>
   <?php
     }

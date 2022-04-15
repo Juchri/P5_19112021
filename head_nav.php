@@ -53,35 +53,35 @@ require ('global.php');
                 Tous les posts
               </a>
             </li>
-            <li class="nav-item">
-<?php 
+
+<?php
             if ($isLoggedIn){
             ?>
-              <a class="nav-link" href="login.php">
-                <i class="fas fa-solid fa-user my-text-primary"></i> Mon compte</a>
-          <?php
-            }else{
-          ?>
-               <a class="nav-link my-text-primary" href="login.php"> Log-in</a>
-          <?php
-            }
-          ?>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="creation_account.php">
-                Création de compte
-              </a>
-            </li>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="creation_account.php">
-              </a>
-            </li>
+
             <li class="nav-item">
               <a class="nav-link" href="creation_post.php">
-                <i class="fas fa-feather"></i>
+                <i class=" my-text-primary fas fa-feather"></i>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="logout.php" class="nav-link">
+                <i class="fas fa-solid fa-user my-text-primary"></i>  Log out</a>
+            </li>
+          <?php
+            }else{
+            ?>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="login.php" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-solid fa-user my-text-primary"></i>  Log in</a>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="login.php">Log-in</a></li>
+                <li><a class="dropdown-item" href="creation_account.php">Création de compte</a></li>
+              </ul>
+            </li>
+            <?php }
+            ?>
           </ul>
         </div>
       </div>
