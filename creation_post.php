@@ -1,7 +1,7 @@
 <?php
-        require ('librairies/config_db.php');
-        require ('librairies/functions.php');
-        require ('head_nav.php');
+        require_once ('librairies/config_db.php');
+        require_once ('librairies/functions.php');
+        require_once ('head_nav.php');
 ?>
 
 <script src="tiny.js"></script>
@@ -13,13 +13,13 @@
             <h1 class="text-center mt-2">Création de post</h1>
 
             <label for="title" class="label-form"><b>Titre</b></label>
-            <input class="form-control" type="title" placeholder="Entrer le titre du post" name="title" required>
+            <input class="form-control" type="title" placeholder="Entrer le titre du post" name="title" require_onced>
 
             <label for="hat" class="label-form"><b>Chapeau</b></label>
-            <input class="form-control" type="hat" placeholder="Entrer le chapeau" name="hat" required>
+            <input class="form-control" type="hat" placeholder="Entrer le chapeau" name="hat" require_onced>
 
             <label for="content" class="label-form">Post</label>
-            <textarea id="content" name="content" type="content" style="width:100%;padding: 8px; font-size: 18px;height:300px;box-sizing:border-box;" class="form-control" required/>
+            <textarea id="content" name="content" type="content" style="width:100%;padding: 8px; font-size: 18px;height:300px;box-sizing:border-box;" class="form-control" require_onced/>
             </textarea>
 
 
@@ -38,6 +38,7 @@
 <?php
 
 $created_at = date('Y-m-d H:i:s');
+$modified_at = date('Y-m-d H:i:s');
 
 if(isset($_POST['title'])) {$title = addslashes($_POST['title']);} else {die();}
 if(isset($_POST['hat'])) {$hat = addslashes($_POST['hat']);} else {die();}
@@ -47,9 +48,10 @@ $data = [
     'title' => $title,
     'hat' => $hat,
     'content' => $content,
-    'created_at' => $created_at
+    'created_at' => $created_at,
+    '$modified_at' => $modified_at
 ];
-$sql = "INSERT INTO post(title, hat, content, created_at) VALUES (:title, :hat, :content, :created_at)";
+$sql = "INSERT INTO post(title, hat, content, created_at, modified_at) VALUES (:title, :hat, :content, :created_at, :modified_at)";
 $stmt= $db->prepare($sql);
 $stmt->execute($data);
 

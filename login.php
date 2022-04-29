@@ -1,7 +1,9 @@
 <?php
-        require ('librairies/config_db.php');
-        require ('head_nav.php');
-        require ('global.php');
+        require_once ('librairies/config_db.php');
+        require_once ('head_nav.php');
+        require_once ('global.php');
+
+        i
 ?>
 
 <?php
@@ -14,10 +16,10 @@
         <form action="verification.php" method="POST">
             <h1 class="text-center mt-2">Connexion</h1>
             <label class="label-form"><b>Nom d'utilisateur</b></label>
-            <input class="form-control" type="text" placeholder="Entrer le nom d'utilisateur" name="username" required>
+            <input class="form-control" type="text" placeholder="Entrer le nom d'utilisateur" name="username" require_onced>
 
             <label class="label-form"><b>Mot de passe</b></label>
-            <input class="form-control" type="password" placeholder="Entrer le mot de passe" name="password" required>
+            <input class="form-control" type="password" placeholder="Entrer le mot de passe" name="password" require_onced>
 
             <input class="my-btn-primary my-btn-primary-primary col text-center mt-3" type="submit" id='submit' value='Login' >
             <?php
@@ -40,5 +42,5 @@
     ?>
 
 <?php
-require_once ('footer.php');
+include_once ('footer.php');
 ?>

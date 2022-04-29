@@ -1,7 +1,7 @@
 <?php
-require ('head_nav.php');
-require ('librairies/config_db.php');
-require ('librairies/functions.php');
+require_once ('head_nav.php');
+require_once ('librairies/config_db.php');
+require_once ('librairies/functions.php');
 
 // Récupère id avec GET
 
@@ -17,7 +17,7 @@ $post = $req->fetch();
     ?>
 
 <?php
-        require ('head_nav.php');
+        require_once ('head_nav.php');
         include_once('librairies/config_db.php');
 ?>
 
@@ -27,13 +27,13 @@ $post = $req->fetch();
         <h1 class="text-center mt-2">Modification de post</h1>
 
         <label for="title" class="label-form"><b>Titre</b></label>
-        <input class="form-control" type="title" value=" <?php echo $post['title'];?>" name="title" required>
+        <input class="form-control" type="title" value=" <?php echo $post['title'];?>" name="title" require_onced>
 
         <label for="hat" class="label-form"><b>Chapeau</b></label>
-        <input class="form-control" type="hat" value=" <?php echo $post['hat']; ?>" name="hat" required>
+        <input class="form-control" type="hat" value=" <?php echo $post['hat']; ?>" name="hat" require_onced>
 
         <label for="content" class="label-form">Post</label>
-        <textarea id="content" name="content" type="content" style="width:100%;padding: 8px; font-size: 18px;height:300px;box-sizing:border-box;" class="form-control" required/>
+        <textarea id="content" name="content" type="content" style="width:100%;padding: 8px; font-size: 18px;height:300px;box-sizing:border-box;" class="form-control" require_onced/>
              <?php echo $post['content']; ?>   
         </textarea>
 
@@ -58,28 +58,21 @@ $post = $req->fetch();
 
 <?php
 
-$created_at = date('Y-m-d H:i:s');
+$modified_at = date('Y-m-d H:i:s');
 
 if(isset($_POST['title'])) {$title = addslashes($_POST['title']);} else {die();}
 if(isset($_POST['hat'])) {$hat = addslashes($_POST['hat']);} else {die();}
-if (get_magic_quotes_gpc(isset($_POST['content']))) {$content =  isset($_POST['content']);} else {die();}
+if (isset($_POST['content'])) {$content =  isset($_POST['content']);} else {die();}
 
 $data = [
     'title' => $title,
     'hat' => $hat,
     'content' => $content,
-    'created_at' => $created_at
+    'modified_at' => $modified_at
 ];
 
-$sql = "UPDATE post(title, hat, content, created_at) VALUES (:title, :hat, :content, :created_at)";
+$sql = "UPDATE post(title, hat, content, modified_at) VALUES (:title, :hat, :content, :modified_at)";
 $stmt= $db->prepare($sql);
 $stmt->execute($data);
 
 ?>
-
-
-<!-- Bootstrap JS bundle -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
-</html>

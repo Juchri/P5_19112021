@@ -1,9 +1,9 @@
 
 
 <?php
-require ('head_nav.php');
-require ('librairies/config_db.php');
-require ('global.php');
+require_once ('head_nav.php');
+require_once ('librairies/config_db.php');
+require_once ('global.php');
 
 // Récupère ID de post et comment avec GET
 $post_id = $_GET[post_id] ;

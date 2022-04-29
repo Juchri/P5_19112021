@@ -4,12 +4,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require ('head_nav.php');
-require ('librairies/config_db.php');
-
-if (file_exists("principale.php")) include "global.php";
-
-
+require_once ('head_nav.php');
+require_once ('librairies/config_db.php');
+require_once ('global.php');
 
 // Récupère id avec GET
 
@@ -69,7 +66,7 @@ $post = $req->fetch();
             ?>
             <div class="row pt-3 pb-0"><p class="fst-italic"> Commenter vous aussi en tant que <?= $user ?></p></div>
               <label for="content" class="label-form"></label>
-              <textarea class="form-control" name="content" placeholder="Ecrivez votre commentaire" style="padding: 8px; font-size: 12px;height:100px;box-sizing:border-box;" class="form-control" required/>
+              <textarea class="form-control" name="content" placeholder="Ecrivez votre commentaire" style="padding: 8px; font-size: 12px;height:100px;box-sizing:border-box;" class="form-control" require_onced/>
               </textarea>
               <input class="my-btn-primary my-btn-primary-primary col text-center mt-3" type="submit" id='submit' value='Publier' >
             </form>

@@ -1,6 +1,6 @@
 <?php
-        require ('librairies/config_db.php');
-        require ('head_nav.php');
+        require_once ('librairies/config_db.php');
+        require_once ('head_nav.php');
 ?>
 
 <h1 class="text-center my-text-primary mt-2"> Créez votre compte ! </h1>
@@ -10,15 +10,15 @@
 <div class="container form">
 <div>
   <label for="Username" class="label-form">Nom d'utilisateur</label>
-  <input type="text" name="username" class="form-control" required />
+  <input type="text" name="username" class="form-control" require_onced />
 </div>
 <div>
   <label for="Email" class="label-form">Email</label>
-  <input type="Email" name="mail" class="form-control" required/>
+  <input type="Email" name="mail" class="form-control" require_onced/>
 </div>
 <div>
   <label for="Password" class="label-form">Mot de passe</label>
-  <input type="text" name="password" class="form-control" required/>
+  <input type="text" name="password" class="form-control" require_onced/>
 </div>
 </div>
 
