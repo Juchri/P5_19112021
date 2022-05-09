@@ -5,21 +5,16 @@ require_once ('librairies/functions.php');
 
 // Récupère id avec GET
 
-$id = $_GET[id] ;
+$post_id = $_GET[id] ;
 
 // Puis méthode requête SQL en fonction de l'id
 
-$req = $db->prepare("SELECT * FROM post WHERE id=$id");
+$req = $db->prepare("SELECT * FROM post WHERE id=$post_id ");
 $req->execute();
 $post = $req->fetch();
 
     {
     ?>
-
-<?php
-        require_once ('head_nav.php');
-        include_once('librairies/config_db.php');
-?>
 
   <body>
 
@@ -62,17 +57,22 @@ $modified_at = date('Y-m-d H:i:s');
 
 if(isset($_POST['title'])) {$title = addslashes($_POST['title']);} else {die();}
 if(isset($_POST['hat'])) {$hat = addslashes($_POST['hat']);} else {die();}
-if (isset($_POST['content'])) {$content =  isset($_POST['content']);} else {die();}
+if(isset($_POST['content'])) {$content =  isset($_POST['content']);} else {die();}
 
 $data = [
     'title' => $title,
     'hat' => $hat,
     'content' => $content,
-    'modified_at' => $modified_at
+    'modified_at' => $modified_at,
 ];
 
-$sql = "UPDATE post(title, hat, content, modified_at) VALUES (:title, :hat, :content, :modified_at)";
+$sql = "UPDATE post SET title = :title, hat = :hat, content = :content, modified_at = :modified_at";
 $stmt= $db->prepare($sql);
 $stmt->execute($data);
 
+?>
+
+
+<?php
+include_once ('footer.php');
 ?>

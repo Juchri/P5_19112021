@@ -10,8 +10,8 @@ require_once ('global.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	  <title> Blog </title>
 
-    <link href="./css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="./css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
@@ -26,7 +26,7 @@ require_once ('global.php');
 <?php
       if ($isLoggedIn){
             ?>
-        <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+        <nav class="navbar navbar-expand-md fixed-top navbar-light my-bg-light">
           <?php
             }else{
           ?>
@@ -47,11 +47,6 @@ require_once ('global.php');
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="index.php">Accueil </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                Blog
-              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="posts.php">

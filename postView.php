@@ -1,31 +1,11 @@
-<?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+<?php 
 
 require_once ('head_nav.php');
-require_once ('librairies/config_db.php');
-require_once ('global.php');
-
-// Récupère id avec GET
 
 $postId = $_GET['id'];
 $user = $_SESSION['username'];
 
-// Puis méthode requête SQL en fonction de l'id
-
-$req = $db->prepare("SELECT * FROM post WHERE id=$id");
-$req->execute();
-$post = $req->fetch();
-
-getPost($postId);
-
-
-    {
-    ?>
-
-
+?>
     <div class="container m-3 mt-4">
       <div class="card p-3">
         <div class="card-title h3 my-text-primary">
@@ -44,9 +24,6 @@ getPost($postId);
       </div>
     </div>
 
-    <?php
-      }
-      ?>
 
     <a class="my-text-primary text-decoration-none m-3" href="http://127.0.0.1:8888/P5_19112021/posts">
         Retour à la liste des posts
@@ -94,10 +71,8 @@ getPost($postId);
         <div class="my-text-secondary container m-3">
 
       <?php
-        $stmt = $db->prepare( "SELECT * FROM coment WHERE post_id=$id AND is_published='0' ORDER BY published_at DESC");
-        $stmt->execute();
-        $comments = $stmt->fetchAll();
-        foreach($comments as $comment)
+
+        while($comment = $comments_tb_validated->fetch())
         {
         ?>
 
@@ -135,12 +110,7 @@ getPost($postId);
 
     <?php
 
-        getCommentList($id, '2');
-
-        $stmt = $db->prepare( "SELECT * FROM coment WHERE post_id=$id AND is_published='2' ORDER BY published_at DESC");
-        $stmt->execute();
-        $comments = $stmt->fetchAll();
-        foreach($comments as $comment)
+    while ($comment = $comments_trash->fetch())
         {
         ?>
 
@@ -184,13 +154,9 @@ getPost($postId);
     }
       /* Affichage commentaires validés */
 
-      $stmt = $db->prepare( "SELECT * FROM coment WHERE post_id=$id AND is_published='1' ORDER BY published_at DESC");
-      $stmt->execute();
-      $comments = $stmt->fetchAll();
-      foreach($comments as $comment)
-      {
-      ?>
-
+        while ($comment = $comments->fetch())
+        {
+        ?>
       <div class="container m-3">
         <div class="my-text-primary"> <?php echo $comment['user'];  ?> </div>
         <div class="card p-3">
@@ -248,5 +214,4 @@ if(isset($_POST['is_published'])){$is_published = addslashes($_POST['is_publishe
 
 <?php
 require_once ('footer.php');
-?>
 
