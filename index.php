@@ -6,19 +6,27 @@
 
   <body>
 
-    <h1 class="text-center mt-3"> Bienvenue sur le blog, spécialiste d'Harry Potter !</h1>
+    <h1 class="text-center mt-3"> Bienvenue sur le blog !</h1>
 
     <div class="container  mt-3">
       <div class="row align-items-start">
         <div class="col-4">
           <img src="./img/profil_juliette.jpg" width="200px" height="200px" class="img-fluid rounded mx-auto d-block " alt="Responsive image">
+          <div class="col text-center mt-3">
+              <input type="submit" class="my-btn-primary my-btn-primary-light" value="Modifier la photo" />
+          </div>
         </div>
         <div class="col-8">
           <h2>Juliette Christain</h2>
-          <a class="my-text-primary" href=""><i class="fab fa-twitter"></i></a>
-          <a class="my-text-primary"  href=""><i class="fab fa-facebook"></i></a><br/>
-          <p>Spécialiste d'Harry Potter depuis ma tendre enfance, j'ai décidé de creér ce blog pour pouvoir partager cette passion, non reconnue dans les études supérieures malheureusement, et pouvoir partager nos ressentis, nos déceptions, ou au contraire nos jolies concernant l'univers Harry Potter. Ici, vous êtes accepté comme vous êtes. Vous pouvez donc nous parler de tout, nous ne vous rejeterons pas ! Nous appliquons la devise de Dumbeldore : "Ce ne sont pas vos ressemblances qui comptent Harry, ce sont vos différences." </p>
-          <a class="my-text-primary"  href="CV_Christain_Juliette[1265].pdf" download>Téléchargez mon CV !</a> <br/>
+          <p> Ma phrase d'accroche ? Aucune, je n'ai pas besoin de vous charmer, venez me parler ! </p>
+          <a href="">Téléchargez mon CV !</a>
+          <a href=""><i class="fab fa-twitter"></i></a>
+          <a href=""><i class="fab fa-facebook"></i></a>
+        <?php
+          if ($isLoggedIn){
+              echo 'Vous êtes connecté !';
+            }
+            ?>
         </div>
       </div>
     </div>

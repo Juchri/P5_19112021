@@ -42,21 +42,17 @@ $modified_at = date('Y-m-d H:i:s');
 
 if(isset($_POST['title'])) {$title = addslashes($_POST['title']);} else {die();}
 if(isset($_POST['hat'])) {$hat = addslashes($_POST['hat']);} else {die();}
-if(isset($_POST['content'])) {$content = addslashes($_POST['content']);} else {die();}
+if(isset($_POST['content'])) {$content = pdo_nettoie(addslashes($_POST['content']));} else {die();}
 
 $data = [
     'title' => $title,
     'hat' => $hat,
     'content' => $content,
     'created_at' => $created_at,
-    'modified_at' => $modified_at
+    '$modified_at' => $modified_at
 ];
 $sql = "INSERT INTO post(title, hat, content, created_at, modified_at) VALUES (:title, :hat, :content, :created_at, :modified_at)";
 $stmt= $db->prepare($sql);
 $stmt->execute($data);
 
-?>
-
-<?php
-include_once ('footer.php');
 ?>

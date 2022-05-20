@@ -10,7 +10,7 @@ require_once ('global.php');
 
 // Récupère id avec GET
 
-$postId = $_GET['id'];
+$id = $_GET['id'];
 $user = $_SESSION['username'];
 
 // Puis méthode requête SQL en fonction de l'id
@@ -18,9 +18,6 @@ $user = $_SESSION['username'];
 $req = $db->prepare("SELECT * FROM post WHERE id=$id");
 $req->execute();
 $post = $req->fetch();
-
-getPost($postId);
-
 
     {
     ?>
