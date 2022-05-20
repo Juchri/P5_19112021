@@ -1,6 +1,6 @@
  <?php
         require_once ('head_nav.php');
-        include_once('librairies/config_db.php');
+        include_once('config_db.php');
         require_once ('global.php');
 ?>
 

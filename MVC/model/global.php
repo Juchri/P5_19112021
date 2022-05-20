@@ -35,4 +35,4 @@ function getComments($postId, $status)
     return $comments;
 }
 
-
+?>

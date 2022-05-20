@@ -1,6 +1,6 @@
 <?php 
 
-require_once ('head_nav.php');
+require_once ('./head_nav.php');
 
 $postId = $_GET['id'];
 $user = $_SESSION['username'];
@@ -15,7 +15,7 @@ $user = $_SESSION['username'];
           <?php echo $post ['hat']; ?>
         </div>
         <div class="card-body text-justify text-muted">
-          <?php echo stripslashes($post['content']); ?>
+          <?php echo $post['content']; ?>
         </div>
         <div class="blockquote-footer p-3">
           <?php echo "Modifié le" ?>
@@ -39,7 +39,7 @@ $user = $_SESSION['username'];
     <div class="container">
         <!-- zone de connexion -->
 
-          <form method="POST">
+          <form method="POST" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>">
                   <?php
             if ($isLoggedIn)
             {
@@ -56,6 +56,7 @@ $user = $_SESSION['username'];
           <?php
             }
           ?>
+
 
 
         <!-- fin formulaire -->
@@ -90,7 +91,7 @@ $user = $_SESSION['username'];
             </div>
             <div class="row pb-3 pt-0">
               <a class="col-11 my-text-primary text-decoration-none" href="validate-comment.php?post_id=<?php echo $id; ?>&comment_id=<?php echo $comment['id']; ?>">Valider le commentaire</a>
-              <a class="col-1 my-text-primary" href="trash-comment.php?post_id=<?php echo $id; ?>&comment_id=<?php echo $comment['id'];?>">
+              <a class="col-1 my-text-primary" href="trash-comment.php?id=<?php echo $comment['id']; ?>">
                 <i class="fas fa-trash"></i>
               </a>
               </div>
@@ -199,7 +200,7 @@ if(isset($_POST['content'])) {$content = addslashes($_POST['content']);} else {d
 $data = [
     'content' => $content,
     'published_at' => $published_at,
-    'post_id' => $postId,
+    'post_id' => $id,
     'user' => $user,
     'is_published' => $is_published
 
@@ -213,5 +214,5 @@ if(isset($_POST['is_published'])){$is_published = addslashes($_POST['is_publishe
 ?>
 
 <?php
-require_once ('footer.php');
+require_once ('./footer.php');
 
