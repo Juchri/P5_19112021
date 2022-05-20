@@ -2,7 +2,6 @@
         require_once ('librairies/config_db.php');
         require_once ('head_nav.php');
         require_once ('global.php');
-       // require ('modele.php');
 ?>
 
 
@@ -50,7 +49,7 @@
         </div>
         <div class="blockquote-footer p-3">
           <?php echo "Modifié le" ?>
-          <?php echo $post['created_at']; ?>
+          <?php echo $post['modified_at']; ?>
         </div>
       </div>
     </div>

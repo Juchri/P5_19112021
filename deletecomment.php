@@ -5,13 +5,14 @@ require_once ('global.php');
 
 
 // Récupère ID avec GET
-$id = $_GET[id] ;
+$post_id = $_GET[post_id] ;
+$comment_id = $_GET[comment_id] ;
 
 // Puis supprime le post lié à cet id
 //$redirect = 'showpost.php?id=$post_id';
-$query = $db -> query("DELETE FROM coment WHERE id = $id");
+$query = $db -> query("DELETE FROM coment WHERE id = $comment_id");
 if ($query){
-    header("Location: show_post.php?id=".$id);
+    header("Location: show_post.php?id=".$post_id);
 }else{
     echo 'Erreur';
 }

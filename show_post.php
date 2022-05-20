@@ -87,7 +87,7 @@ $post = $req->fetch();
     ?>
 
       <h3 class="h5 m-3"> Commentaires à valider </h3>
-      <div class="">
+      <div>
         <div class="my-text-secondary container m-3">
 
       <?php
@@ -112,7 +112,7 @@ $post = $req->fetch();
             </div>
             <div class="row pb-3 pt-0">
               <a class="col-11 my-text-primary text-decoration-none" href="validate-comment.php?post_id=<?php echo $id; ?>&comment_id=<?php echo $comment['id']; ?>">Valider le commentaire</a>
-              <a class="col-1 my-text-primary" href="trash-comment.php?id=<?php echo $comment['id']; ?>">
+              <a class="col-1 my-text-primary" href="trash-comment.php?post_id=<?php echo $id; ?>&comment_id=<?php echo $comment['id']; ?>">
                 <i class="fas fa-trash"></i>
               </a>
               </div>
@@ -127,12 +127,10 @@ $post = $req->fetch();
       </div>
 
       <h3 class="h5 m-3"> Corbeille </h3>
-      <div class="">
+      <div>
         <div class="my-text-secondary container">
 
     <?php
-
-        getCommentList($id, '2');
 
         $stmt = $db->prepare( "SELECT * FROM coment WHERE post_id=$id AND is_published='2' ORDER BY published_at DESC");
         $stmt->execute();
@@ -155,7 +153,7 @@ $post = $req->fetch();
             </div>
             <div class="row">
               <a class="col-11 my-text-primary text-decoration-none" href="restaure-comment.php?post_id=<?php echo $id; ?>&comment_id=<?php echo $comment['id']; ?>">Restaurer le commentaire</a>
-              <a class="col-1 my-text-primary" href="deletecomment.php?id=<?php echo $comment['id']; ?>">
+              <a class="col-1 my-text-primary" href="deletecomment.php?post_id=<?php echo $id; ?>&comment_id=<?php echo $comment['id'];?>">
                 <i class="fas fa-trash"></i>
               </a>
               </div>

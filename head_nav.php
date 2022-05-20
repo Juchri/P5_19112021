@@ -26,7 +26,7 @@ require_once ('global.php');
 <?php
       if ($isLoggedIn){
             ?>
-        <nav class="navbar navbar-expand-md fixed-top navbar-light bg-light">
+        <nav class="navbar navbar-expand-md fixed-top navbar-light my-bg-light">
           <?php
             }else{
           ?>
@@ -47,11 +47,6 @@ require_once ('global.php');
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="index.php">Accueil </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">
-                Blog
-              </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="posts.php">
