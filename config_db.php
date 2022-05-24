@@ -18,7 +18,7 @@
   /*On capture les exceptions si une exception est lancée et on affiche
     *les informations relatives à celle-ci*/
   catch(PDOException $e){
-    echo "Erreur : " . $e->getMessage();
+    print_r ("Erreur : " . $e->getMessage());
   }
 ?>
 
