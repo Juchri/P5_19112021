@@ -225,7 +225,9 @@ $published_at = date('Y-m-d H:i:s');
 $is_published = '0';
 
 $POST_CONTENT = isset($_POST['content']);
-if($POST_CONTENT) {$content = addslashes($POST_CONTENT);}
+$content_content = addslashes($_POST['content']);
+
+if($POST_CONTENT) {$content = $content_content;}
 
 $data = [
     'content' => $content,
@@ -240,8 +242,8 @@ $stmt= $db->prepare($sql);
 $stmt->execute($data);
 
 $POST_IP = isset($_POST['is_published']);
-
-if($POST_IP){$is_published = addslashes($POST_IP);} else {$is_published = "0";}
+$content_IP = addslashes($_POST['is_published']);
+if($POST_IP){$is_published = $content_IP;} else {$is_published = "0";}
 
 ?>
 

@@ -58,9 +58,13 @@ $POST_title = isset($_POST['title']);
 $POST_hat = isset($_POST['hat']);
 $POST_content= isset($_POST['content']);
 
-if($POST_title) {$title = addslashes($POST_title);}
-if($POST_hat) {$hat = addslashes($POST_hat);}
-if($POST_content) {$content = addslashes($POST_content);}
+$content_title = addslashes($_POST['title']);
+$content_hat = addslashes($_POST['hat']);
+$content_content= addslashes($_POST['content']);
+
+if($POST_title) {$title = $content_title;}
+if($POST_hat) {$hat = $content_hat;}
+if($POST_content) {$content = $content_content;}
 
 $data = [
     'title' => $title,
