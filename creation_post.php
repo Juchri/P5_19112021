@@ -40,9 +40,13 @@
 $created_at = date('Y-m-d H:i:s');
 $modified_at = date('Y-m-d H:i:s');
 
-if(isset($_POST['title'])) {$title = addslashes($_POST['title']);}
-if(isset($_POST['hat'])) {$hat = addslashes($_POST['hat']);}
-if(isset($_POST['content'])) {$content = addslashes($_POST['content']);}
+$POST_title = $_POST['title'];
+$POST_hat = $_POST['hat'];
+$POST_content= $_POST['content'];
+
+if(isset($POST_title)) {$title = addslashes($POST_title);}
+if(isset($POST_hat)) {$hat = addslashes($POST_hat);}
+if(isset($POST_content)) {$content = addslashes($POST_content);}
 
 $data = [
     'title' => $title,
