@@ -28,7 +28,7 @@
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
                 if($err==1 || $err==2)
-                    echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+                print_r ("<p style='color:red'>Utilisateur ou mot de passe incorrect</p>");
             }
             ?>
         </form>
@@ -69,5 +69,5 @@ include_once ('footer.php');
 if ($stmt){
     header("Location: posts.php");
 }else{
-    echo 'Erreur';
+    print_r ('Erreur');
 }

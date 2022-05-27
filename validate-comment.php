@@ -15,5 +15,5 @@ $query = $db -> query("UPDATE coment SET is_published = '1' WHERE id = $comment_
 if ($query){
     header("Location: show_post.php?id=".$post_id);
 }else{
-    echo 'Erreur';
+    print_r ('Erreur');
 }

@@ -12,9 +12,8 @@ $isLoggedIn = $_SESSION['username'];
 
 function getCommentList($postId, $isPublished){
 
-        echo $postId;
-        echo $isPublished;
-
+        print_r ($postId);
+        print_r ($isPublished);
 }
 
 

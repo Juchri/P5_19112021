@@ -20,13 +20,13 @@
     <div class="container m-3">
       <div class="rounded my-bg-muted p-3">
         <div class="card-title h3 my-text-primary">
-          <?php echo $post['title']; ?>
+          <?= $post['title']; ?>
         </div>
         <div class="card-subtitle h4 my-my-text-secondary">
-          <?php echo $post['hat']; ?>
+          <?= $post['hat']; ?>
         </div>
         <div class="card-body text-justify text-muted">
-          <?php echo stripslashes($post['content']); ?>
+          <?= stripslashes($post['content']); ?>
         </div>
         <div class="container">
           <div class="row">
@@ -48,8 +48,8 @@
          </div>
         </div>
         <div class="blockquote-footer p-3">
-          <?php echo "Modifié le" ?>
-          <?php echo $post['modified_at']; ?>
+          <?= "Modifié le" ?>
+          <?= $post['modified_at']; ?>
         </div>
       </div>
     </div>

@@ -26,7 +26,7 @@
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
                 if($err==1 || $err==2)
-                    echo "<p class='my-text-primary'> Utilisateur ou mot de passe incorrect</p>";
+                    print_r ("<p class='my-text-primary'> Utilisateur ou mot de passe incorrect</p>");
             }
             ?>
         </form>

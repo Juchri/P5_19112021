@@ -21,14 +21,14 @@ $post = $req->fetch();
         <h1 class="text-center mt-2">Modification de post</h1>
 
         <label for="title" class="label-form"><b>Titre</b></label>
-        <input class="form-control" type="title" value=" <?php echo $post['title'];?>" name="title" require_onced>
+        <input class="form-control" type="title" value=" <?= $post['title'];?>" name="title" require_onced>
 
         <label for="hat" class="label-form"><b>Chapeau</b></label>
-        <input class="form-control" type="hat" value=" <?php echo $post['hat']; ?>" name="hat" require_onced>
+        <input class="form-control" type="hat" value=" <?= $post['hat']; ?>" name="hat" require_onced>
 
         <label for="content" class="label-form">Post</label>
         <textarea id="content" name="content" type="content" style="width:100%;padding: 8px; font-size: 18px;height:300px;box-sizing:border-box;" class="form-control" require_onced/>
-             <?php echo $post['content']; ?>   
+             <?= $post['content']; ?>   
         </textarea>
 
         <input class="my-btn-primary my-btn-primary-primary col text-center mt-3" type="submit" id='submit' value='Modifier le post' >
@@ -37,7 +37,7 @@ $post = $req->fetch();
         if(isset($_GET['erreur'])){
             $err = $_GET['erreur'];
             if($err==1 || $err==2)
-                echo "<p style='color:red'>Utilisateur ou mot de passe incorrect</p>";
+                print_r ("<p style='color:red'>Utilisateur ou mot de passe incorrect</p>");
         }
     }
     ?>
@@ -80,5 +80,5 @@ $stmt->execute($data);
 if ($stmt){
     header("Location: posts.php");
 }else{
-    echo 'Erreur';
+    print_r ('Erreur');
 }
