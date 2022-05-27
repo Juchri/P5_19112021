@@ -223,7 +223,7 @@ $post = $req->fetch();
 
 $published_at = date('Y-m-d H:i:s');
 $is_published = '0';
-if(isset($_POST['content'])) {$content = addslashes($_POST['content']);} else {die();}
+if(isset($_POST['content'])) {$content = addslashes($_POST['content']);}
 
 $data = [
     'content' => $content,
