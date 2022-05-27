@@ -1,36 +1,36 @@
-.my-text-primary{
-   color:#9C344C;
+.my-text-primary {
+  color : #9c344c; 
 }
 
-.my-text-primary:hover{
-    color:#C36279;
+.my-text-primary:hover {
+  color : #c36279; 
  }
 
-.my-bg-primary{
-    background-color:#9C344C;
+.my-bg-primary {
+  background-color : #9c344c; 
  }
 
- .my-text-secondary{
-    color:#C36279;
+ .my-text-secondary {
+  color : #c36279; 
 }
 
-.my-bg-light{
-    background-color:#ECC8D0;
+.my-bg-light {
+  background-color:#ecc8d0; 
 }
 
 a{
-    color:#9C344C;
+  color: #9c344c; 
 }
 
-.my-bg-muted{
-    background-color:whitesmoke;
+.my-bg-muted {
+  background-color: whitesmoke; 
 }
 
-.my-btn-primary{
-    color: #fff;
-    background-color: #9C344C;
-    border-color: #9C344C;
-    border-radius: 0.6ex;
-    padding: 5px 10px 5px 10px;
-    box-shadow: none;
+.my-btn-primary {
+  color : #fff;
+  background-color : #9c344c; 
+  border-color : #9c344c; 
+  border-radius : 0.6ex; 
+  padding : 5px 10px 5px 10px; 
+  box-shadow : none; 
 }
