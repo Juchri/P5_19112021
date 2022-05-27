@@ -30,17 +30,10 @@
 
 <?php
 
-$username = empy($_POST['username']);
-$mail = empty($_POST['mail']);
-$paswword = empty($_POST['password']);
+$username =  filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+$mail =  filter_input(INPUT_POST, 'mail', FILTER_SANITIZE_SPECIAL_CHARS);
+$password =  filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
-$content_username = addslashes($_POST['username']);
-$content_mail = addslashes($_POST['mail']);
-$content_paswword = addslashes($_POST['password']);
-
-if($username) {$username = $content_username;}
-if($mail) {$mail = $content_mail;}
-if($password) {$password = $content_paswword ;}
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
 $data = [

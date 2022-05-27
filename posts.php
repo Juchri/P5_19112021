@@ -30,16 +30,16 @@
         </div>
         <div class="container">
           <div class="row">
-            <a class="text-decoration-none my-text-primary col-8" href="show_post.php?id=<?php echo $post['id']; ?>">
+            <a class="text-decoration-none my-text-primary col-8" href="show_post.php?id=<?= $post['id']; ?>">
                 Lire plus...
             </a>
             <?php
             if ($isLoggedIn){
               ?>
-              <a class="text-decoration-none my-text-primary col-2" href="editpost.php?id=<?php echo $post['id']; ?>">
+              <a class="text-decoration-none my-text-primary col-2" href="editpost.php?id=<?= $post['id']; ?>">
                   Modifier le post
               </a>
-              <a class="text-decoration-none my-text-primary col-2" href="deletepost.php?id=<?php echo $post['id']; ?>">
+              <a class="text-decoration-none my-text-primary col-2" href="deletepost.php?id=<?= $post['id']; ?>">
                   Supprimer le post
               </a>
             <?php

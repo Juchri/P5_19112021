@@ -3,8 +3,8 @@ require_once ('head_nav.php');
 require_once ('librairies/functions.php');
 
 // Récupère id avec GET
+$post_id = filter_input(INPUT_GET, 'post_id', FILTER_SANITIZE_SPECIAL_CHARS);
 
-$post_id = $_GET['id'];
 
 // Puis méthode requête SQL en fonction de l'id
 

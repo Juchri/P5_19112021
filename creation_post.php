@@ -25,6 +25,7 @@
 
             <input class="my-btn-primary my-btn-primary-primary my-bg-primary col text-center mt-3" type="submit" id='submit' value='Publier' >
             <?php
+
             if(isset($_GET['erreur'])){
                 $err = $_GET['erreur'];
                 if($err==1 || $err==2)
@@ -39,6 +40,7 @@
 
 $created_at = date('Y-m-d H:i:s');
 $modified_at = date('Y-m-d H:i:s');
+
 
 $title =  filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
 $hat =  filter_input(INPUT_POST, 'hat', FILTER_SANITIZE_SPECIAL_CHARS);

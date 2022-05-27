@@ -10,8 +10,8 @@ error_reporting(E_ALL);
    // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
     // pour éliminer toute attaque de type injection SQL et XSS
 
-    $username = htmlspecialchars($_POST['username']);
-    $password = htmlspecialchars($_POST['password']);
+    $username =  filter_input(INPUT_POST, 'username', FILTER_SANITIZE_SPECIAL_CHARS);
+    $password =  filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
 
     if($username !== "" && $password !== ""){
 
@@ -21,7 +21,7 @@ error_reporting(E_ALL);
 
       $user = $stmt->fetch();
 
-        if($user && password_verify($_POST['password'], $user['hash'])) {
+        if($user && password_verify($password, $user['hash'])) {
            $_SESSION['username'] = $username;
            header('Location: principale.php');
         }

@@ -45,7 +45,7 @@ $post = $req->fetch();
       }
       ?>
 
-    <a class="my-text-primary text-decoration-none m-3" href="http://127.0.0.1:8888/P5_19112021/posts">
+    <a class="my-text-primary text-decoration-none m-3" href="http://127.0.0.1:8888/P5_19112021/posts.php">
         Retour à la liste des posts
     </a>
 
@@ -111,7 +111,7 @@ $post = $req->fetch();
                 <?= $comment['published_at']; ?>
             </div>
             <div class="row pb-3 pt-0">
-              <a class="col-11 my-text-primary text-decoration-none" href="validate-comment.php?post_id=<?= $id; ?>&comment_id=<?php= $comment['id']; ?>">Valider le commentaire</a>
+              <a class="col-11 my-text-primary text-decoration-none" href="validate-comment.php?post_id=<?= $id; ?>&comment_id=<?= $comment['id']; ?>">Valider le commentaire</a>
               <a class="col-1 my-text-primary" href="trash-comment.php?post_id=<?= $id; ?>&comment_id=<?= $comment['id']; ?>">
                 <i class="fas fa-trash"></i>
               </a>
@@ -224,11 +224,8 @@ $post = $req->fetch();
 $published_at = date('Y-m-d H:i:s');
 $is_published = '0';
 
-$POST_CONTENT = isset($_POST['content']);
-$content_content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
-
-
-if($POST_CONTENT) {$content = $content_content;}
+$content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
+if($content){$content=$content;}
 
 $data = [
     'content' => $content,
@@ -242,9 +239,7 @@ $sql = "INSERT INTO coment(content, published_at, post_id, user, is_published) V
 $stmt= $db->prepare($sql);
 $stmt->execute($data);
 
-$POST_IP = isset($_POST['is_published']);
-$content_IP = addslashes($_POST['is_published']);
-if($POST_IP){$is_published = $content_IP;} else {$is_published = "0";}
+if($is_published){$is_published = $is_published;} else {$is_published = "0";}
 
 ?>
 

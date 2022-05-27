@@ -6,8 +6,8 @@ require_once ('librairies/config_db.php');
 require_once ('global.php');
 
 // Récupère ID de post et comment avec GET
-$post_id = $_GET[post_id] ;
-$comment_id = $_GET[comment_id] ;
+$post_id = filter_input(INPUT_GET, 'post_id', FILTER_SANITIZE_SPECIAL_CHARS);
+$comment_id = filter_input(INPUT_GET, 'comment_id', FILTER_SANITIZE_SPECIAL_CHARS);
 
 // Puis supprime le post lié à cet id
 //$redirect = 'showpost.php?id=$post_id';
@@ -17,3 +17,4 @@ if ($query){
 }else{
     print_r ('Erreur');
 }
+
