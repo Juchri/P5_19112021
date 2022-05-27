@@ -1,6 +1,6 @@
 <?php
-        require_once ('librairies/config_db.php');
-        require_once ('head_nav.php');
+        require_once 'librairies/config_db.php';
+        require_once 'head_nav.php';
 ?>
 
 <h1 class="text-center my-text-primary mt-2"> Créez votre compte ! </h1>

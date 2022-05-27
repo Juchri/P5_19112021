@@ -1,9 +1,7 @@
 <?php
-        require_once ('librairies/config_db.php');
-        require_once ('head_nav.php');
-        require_once ('global.php');
-
-        i
+        require_once 'librairies/config_db.php';
+        require_once 'head_nav.php';
+        require_once 'global.php';
 ?>
 
 <?php
@@ -42,5 +40,5 @@
     ?>
 
 <?php
-include_once ('footer.php');
+include_once 'footer.php';
 ?>

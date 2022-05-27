@@ -1,11 +1,8 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
-  require_once ('librairies/config_db.php');
-  require_once ('head_nav.php');
-  require_once ('global.php');
+  require_once 'librairies/config_db.php';
+  require_once 'head_nav.php';
+  require_once 'global.php';
 
    // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
     // pour éliminer toute attaque de type injection SQL et XSS
@@ -34,4 +31,4 @@ error_reporting(E_ALL);
 
 //Session set -> récupérer les infos stcokées de l'utilisateur connecté dans la session
 
-include_once ('footer.php');
+include_once 'footer.php';

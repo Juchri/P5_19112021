@@ -6,8 +6,8 @@
     </head>
 
     <?php
-        require_once ('librairies/config_db.php');
-        require_once ('head_nav.php');
+        require_once 'librairies/config_db.php';
+        require_once 'head_nav.php';
     ?>
 
     <body style='background:#fff;'>
@@ -27,5 +27,5 @@
         <?php ini_set("session.gc_maxlifetime","3600"); ?>
 
 <?php
-require_once ('footer.php');
+require_once 'footer.php';
 ?>

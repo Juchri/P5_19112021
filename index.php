@@ -1,7 +1,7 @@
 <?php
-        require_once ('head_nav.php');
-        include_once('librairies/config_db.php');
-        require_once ('global.php');
+        require_once 'head_nav.php';
+        include_once 'librairies/config_db.php';
+        require_once 'global.php';
 ?>
 
   <body>
@@ -24,5 +24,5 @@
     </div>
 
 <?php
-require_once ('footer.php');
+require_once 'footer.php';
 ?>

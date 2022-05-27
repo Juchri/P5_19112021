@@ -1,7 +1,7 @@
 <?php
-        require_once ('librairies/config_db.php');
-        require_once ('librairies/functions.php');
-        require_once ('head_nav.php');
+        require_once 'librairies/config_db.php';
+        require_once 'librairies/functions.php';
+        require_once 'head_nav.php';
 ?>
 
 <script src="tiny.js"></script>
@@ -58,7 +58,7 @@ $stmt= $db->prepare($sql);
 $stmt->execute($data);
 
 
-include_once ('footer.php');
+include_once 'footer.php';
 
 if ($stmt){
     header("Location: posts.php");

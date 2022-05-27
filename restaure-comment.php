@@ -1,6 +1,6 @@
 <?php
-require_once ('head_nav.php');
-require_once ('librairies/config_db.php');
+require_once 'head_nav.php';
+require_once 'librairies/config_db.php';
 
 // Récupère ID de post et comment avec GET
 $post_id = filter_input(INPUT_GET, 'post_id', FILTER_SANITIZE_SPECIAL_CHARS);

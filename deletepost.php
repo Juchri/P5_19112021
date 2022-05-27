@@ -1,6 +1,6 @@
 <?php
-require_once ('head_nav.php');
-require_once ('librairies/config_db.php');
+require_once 'head_nav.php';
+require_once 'librairies/config_db.php';
 
 // Récupère ID avec GET
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_SPECIAL_CHARS);

@@ -1,14 +1,13 @@
 <?php
-require_once ('head_nav.php');
-require_once ('librairies/functions.php');
+require_once 'head_nav.php';
+require_once 'librairies/functions.php';
 
 // Récupère id avec GET
-$post_id = filter_input(INPUT_GET, 'post_id', FILTER_SANITIZE_SPECIAL_CHARS);
-
+$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_SPECIAL_CHARS);
 
 // Puis méthode requête SQL en fonction de l'id
 
-$req = $db->prepare("SELECT * FROM post WHERE id=$post_id");
+$req = $db->prepare("SELECT * FROM post WHERE id=$id");
 $req->execute();
 $post = $req->fetch();
 
@@ -28,7 +27,7 @@ $post = $req->fetch();
 
         <label for="content" class="label-form">Post</label>
         <textarea id="content" name="content" type="content" style="width:100%;padding: 8px; font-size: 18px;height:300px;box-sizing:border-box;" class="form-control" require_onced/>
-             <?= $post['content']; ?>   
+             <?= $post['content']; ?>
         </textarea>
 
         <input class="my-btn-primary my-btn-primary-primary col text-center mt-3" type="submit" id='submit' value='Modifier le post' >
@@ -65,7 +64,7 @@ $data = [
     'modified_at' => $modified_at,
 ];
 
-$sql = "UPDATE post SET title = :title, hat = :hat, content = :content, modified_at = :modified_at WHERE id=$post_id";
+$sql = "UPDATE post SET title = :title, hat = :hat, content = :content, modified_at = :modified_at WHERE id=$id";
 $stmt= $db->prepare($sql);
 $stmt->execute($data);
 
