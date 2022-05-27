@@ -5,8 +5,8 @@ require_once ('global.php');
 
 
 // Récupère ID avec GET
-$post_id = $_GET[post_id] ;
-$comment_id = $_GET[comment_id] ;
+$post_id = isset($_GET[post_id]) ;
+$comment_id = isset($_GET[comment_id]) ;
 
 // Puis supprime le post lié à cet id
 //$redirect = 'showpost.php?id=$post_id';
