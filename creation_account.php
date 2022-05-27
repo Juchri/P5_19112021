@@ -30,13 +30,13 @@
 
 <?php
 
-$username = $_POST['username'];
-$mail = $_POST['mail'];
-$paswword = $_POST['password'];
+$username = isset($_POST['username']);
+$mail = isset($_POST['mail']);
+$paswword = isset($_POST['password']);
 
-if(isset($username)) {$username = addslashes($_POST['username']);}
-if(isset($mail)) {$mail = addslashes($_POST['mail']);}
-if(isset($password)) {$password = addslashes($_POST['password']);} 
+if($username) {$username = addslashes($_POST['username']);}
+if($mail) {$mail = addslashes($_POST['mail']);}
+if($password) {$password = addslashes($_POST['password']);}
 $hash = password_hash($password, PASSWORD_DEFAULT);
 
 $data = [

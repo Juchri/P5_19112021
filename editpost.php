@@ -54,13 +54,13 @@ $post = $req->fetch();
 
 $modified_at = date('Y-m-d H:i:s');
 
-$POST_title = $_POST['title'];
-$POST_hat = $_POST['hat'];
-$POST_content= $_POST['content'];
+$POST_title = isset($_POST['title']);
+$POST_hat = isset($_POST['hat']);
+$POST_content= isset($_POST['content']);
 
-if(isset($POST_title)) {$title = addslashes($POST_title);}
-if(isset($POST_hat)) {$hat = addslashes($POST_hat);}
-if(isset($POST_content)) {$content = addslashes($POST_content);}
+if($POST_title) {$title = addslashes($POST_title);}
+if($POST_hat) {$hat = addslashes($POST_hat);}
+if($POST_content) {$content = addslashes($POST_content);}
 
 $data = [
     'title' => $title,

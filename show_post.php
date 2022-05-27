@@ -224,8 +224,8 @@ $post = $req->fetch();
 $published_at = date('Y-m-d H:i:s');
 $is_published = '0';
 
-$POST_CONTENT = $_POST['content'];
-if(isset($POST_CONTENT)) {$content = addslashes($POST_CONTENT);}
+$POST_CONTENT = isset($_POST['content']);
+if($POST_CONTENT) {$content = addslashes($POST_CONTENT);}
 
 $data = [
     'content' => $content,
@@ -239,9 +239,9 @@ $sql = "INSERT INTO coment(content, published_at, post_id, user, is_published) V
 $stmt= $db->prepare($sql);
 $stmt->execute($data);
 
-$POST_IP = $_POST['is_published'];
+$POST_IP = isset($_POST['is_published']);
 
-if(isset($POST_IP)){$is_published = addslashes($POST_IP);} else {$is_published = "0";}
+if($POST_IP){$is_published = addslashes($POST_IP);} else {$is_published = "0";}
 
 ?>
 
