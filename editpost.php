@@ -60,11 +60,12 @@ $POST_content= isset($_POST['content']);
 
 $content_title = addslashes($_POST['title']);
 $content_hat = addslashes($_POST['hat']);
-$content_content= addslashes($_POST['content']);
+$content_content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
 
 if($POST_title) {$title = $content_title;}
 if($POST_hat) {$hat = $content_hat;}
 if($POST_content) {$content = $content_content;}
+
 
 $data = [
     'title' => $title,
