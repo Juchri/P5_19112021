@@ -221,7 +221,7 @@ $published_at = date('Y-m-d H:i:s');
 $is_published = '0';
 
 $content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
-if($content){$content=$content;}
+if($content){$content = $content;} else {$content = '';}
 
 $data = [
     'content' => $content,
