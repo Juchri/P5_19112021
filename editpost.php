@@ -54,18 +54,9 @@ $post = $req->fetch();
 
 $modified_at = date('Y-m-d H:i:s');
 
-$POST_title = isset($_POST['title']);
-$POST_hat = isset($_POST['hat']);
-$POST_content= isset($_POST['content']);
-
-$content_title = addslashes($_POST['title']);
-$content_hat = addslashes($_POST['hat']);
-$content_content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
-
-if($POST_title) {$title = $content_title;}
-if($POST_hat) {$hat = $content_hat;}
-if($POST_content) {$content = $content_content;}
-
+$title =  filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS);
+$hat =  filter_input(INPUT_POST, 'hat', FILTER_SANITIZE_SPECIAL_CHARS);
+$content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
 
 $data = [
     'title' => $title,

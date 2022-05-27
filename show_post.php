@@ -26,17 +26,17 @@ $post = $req->fetch();
     <div class="container m-3 mt-4">
       <div class="card p-3">
         <div class="card-title h3 my-text-primary">
-          <?php echo $post['title']; ?>
+          <?=  $post['title']; ?>
         </div>
         <div class="card-subtitle h4 my-text-secondary">
-          <?php echo $post ['hat']; ?>
+          <?= $post ['hat']; ?>
         </div>
         <div class="card-body text-justify text-muted">
-          <?php echo $post['content']; ?>
+          <?= $post['content']; ?>
         </div>
         <div class="blockquote-footer p-3">
-          <?php echo "Modifié le" ?>
-          <?php echo $post['created_at']; ?>
+          <?= "Modifié le" ?>
+          <?= $post['created_at']; ?>
         </div>
       </div>
     </div>
@@ -99,20 +99,20 @@ $post = $req->fetch();
         ?>
 
         <div class="container">
-          <div class="my-text-primary"> <?php echo $comment['user'];  ?> </div>
+          <div class="my-text-primary"> <?= $comment['user'];  ?> </div>
           <div class="card p-3">
             <div class="card-title h6 my-text-secondary">
-              <?php echo $comment['content']; ?>
+              <?= $comment['content']; ?>
             </div>
           </div>
           <div class="row align-middle">
             <div class="col-11 blockquote-footer mb-0">
-                <?php echo "Créé le" ?>
-                <?php echo $comment['published_at']; ?>
+                <?= "Créé le" ?>
+                <?= $comment['published_at']; ?>
             </div>
             <div class="row pb-3 pt-0">
-              <a class="col-11 my-text-primary text-decoration-none" href="validate-comment.php?post_id=<?php echo $id; ?>&comment_id=<?php echo $comment['id']; ?>">Valider le commentaire</a>
-              <a class="col-1 my-text-primary" href="trash-comment.php?post_id=<?php echo $id; ?>&comment_id=<?php echo $comment['id']; ?>">
+              <a class="col-11 my-text-primary text-decoration-none" href="validate-comment.php?post_id=<?= $id; ?>&comment_id=<?php= $comment['id']; ?>">Valider le commentaire</a>
+              <a class="col-1 my-text-primary" href="trash-comment.php?post_id=<?= $id; ?>&comment_id=<?= $comment['id']; ?>">
                 <i class="fas fa-trash"></i>
               </a>
               </div>
@@ -140,20 +140,20 @@ $post = $req->fetch();
         ?>
 
         <div class="container m-3">
-          <div class="my-text-primary"> <?php echo $comment['user'];  ?> </div>
+          <div class="my-text-primary"> <?= $comment['user'];  ?> </div>
           <div class="card p-3">
             <div class="card-title h6 my-text-secondary">
-              <?php echo $comment['content']; ?>
+              <?= $comment['content']; ?>
             </div>
           </div>
           <div class="row align-middle">
           <div class="col-11 blockquote-footer mb-0">
-                <?php echo "Modifié le" ?>
-                <?php echo $comment['published_at']; ?>
+                <?= "Modifié le" ?>
+                <?= $comment['published_at']; ?>
             </div>
             <div class="row">
-              <a class="col-11 my-text-primary text-decoration-none" href="restaure-comment.php?post_id=<?php echo $id; ?>&comment_id=<?php echo $comment['id']; ?>">Restaurer le commentaire</a>
-              <a class="col-1 my-text-primary" href="deletecomment.php?post_id=<?php echo $id; ?>&comment_id=<?php echo $comment['id'];?>">
+              <a class="col-11 my-text-primary text-decoration-none" href="restaure-comment.php?post_id=<?= $id; ?>&comment_id=<?= $comment['id']; ?>">Restaurer le commentaire</a>
+              <a class="col-1 my-text-primary" href="deletecomment.php?post_id=<?= $id; ?>&comment_id=<?= $comment['id'];?>">
                 <i class="fas fa-trash"></i>
               </a>
               </div>
@@ -187,10 +187,10 @@ $post = $req->fetch();
       ?>
 
       <div class="container m-3">
-        <div class="my-text-primary"> <?php echo $comment['user'];  ?> </div>
+        <div class="my-text-primary"> <?= $comment['user'];  ?> </div>
         <div class="card p-3">
           <div class="card-title h6 my-text-secondary">
-            <?php echo $comment['content']; ?>
+            <?= $comment['content']; ?>
           </div>
         </div>
   <?php
@@ -199,10 +199,10 @@ $post = $req->fetch();
       ?>
         <div class="row align-middle">
           <div class="col-11 blockquote-footer">
-              <?php echo "Validé le" ?>
-              <?php echo $comment['published_at']; ?>
+              <?= "Validé le" ?>
+              <?= $comment['published_at']; ?>
           </div>
-          <a class="col-1" href="trash-comment.php?post_id=<?php echo $id; ?>&comment_id=<?php echo $comment['id']; ?>">
+          <a class="col-1" href="trash-comment.php?post_id=<?= $id; ?>&comment_id=<?= $comment['id']; ?>">
                 <i class="fas fa-trash my-text-secondary"></i>
           </a>
         </div>
@@ -225,7 +225,8 @@ $published_at = date('Y-m-d H:i:s');
 $is_published = '0';
 
 $POST_CONTENT = isset($_POST['content']);
-$content_content = addslashes($_POST['content']);
+$content_content = filter_input(INPUT_POST, 'content', FILTER_SANITIZE_SPECIAL_CHARS);
+
 
 if($POST_CONTENT) {$content = $content_content;}
 
